@@ -50,16 +50,19 @@ h1 {
     margin-bottom: 20px;
 }
 
-.intro img {
-    max-width: 100%;
-    height: auto;
+.arrow {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
 }
 
-.section h2 {
-    color: #333;
-    margin-bottom: 20px;
+#left-arrow {
+    left: 20px;
 }
 
-.section p {
-    color: #555;
+#right-arrow {
+    right: 20px;
 }
