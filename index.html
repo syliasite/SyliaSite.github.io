@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Project Aragonite</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preload" href="SyliaWebsite/Page_Images/Main_Home_Screen.png" as="image">
+    <link rel="preload" href="SyliaWebsite/Page_Images/Game_Region_Info.png.png" as="image">
+    <link rel="preload" href="SyliaWebsite/Page_Images/Trainer_Info.png" as="image">
 </head>
 <style>
     body, html {
@@ -13,7 +16,7 @@
         margin: 0;
         background: url('SyliaWebsite/Page_Images/Main_Home_Screen.png') no-repeat center center fixed;
         background-size: cover;
-        transition: background 0.5s ease-in-out;
+        transition: background-image 2s ease-in-out;
     }
 </style>
 <body>
@@ -40,10 +43,18 @@
             "SyliaWebsite/Page_Images/Trainer_Info.png"
         ];
 
+        // Preload all background images to ensure fast swaps
+        const preloadedImages = [];
+        backgrounds.forEach((src) => {
+            const img = new Image();
+            img.src = src;
+            preloadedImages.push(img);
+        });
+
         // Current background index
         let currentIndex = 0;
 
-        // Function to change the background
+        // Function to change the background with smooth transition
         function changeBackground(index) {
             if (index < 0) {
                 currentIndex = backgrounds.length - 1;
@@ -52,6 +63,8 @@
             } else {
                 currentIndex = index;
             }
+
+            // Change the background image with smooth transition
             document.body.style.backgroundImage = `url('${backgrounds[currentIndex]}')`;
         }
 
