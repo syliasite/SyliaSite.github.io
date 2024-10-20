@@ -14,7 +14,7 @@ body {
 }
 
 header {
-    background-color: #000; /* Black background */
+    background-color: #000;
     padding: 10px 0;
 }
 
@@ -37,7 +37,7 @@ header {
 }
 
 .navbar a:hover {
-    background-color: #444; /* Darken when hovered */
+    background-color: #444;
     border-radius: 5px;
 }
 
@@ -47,7 +47,6 @@ header {
 }
 
 h1 {
-    color: #ff4500; /* Orange-Red for title */
     margin-bottom: 20px;
 }
 
