@@ -13,6 +13,7 @@
         margin: 0;
         background: url('SyliaWebsite/Page_Images/Main_Home_Screen.png') no-repeat center center fixed;
         background-size: cover;
+        transition: background 0.5s ease-in-out;
     }
 </style>
 <body>
@@ -26,5 +27,42 @@
             </ul>
         </nav>
     </header>
+
+    <!-- Left and right arrow images -->
+    <img id="left-arrow" class="arrow" src="SyliaWebsite/Page_Images/Left_Arrow.png" alt="Left Arrow">
+    <img id="right-arrow" class="arrow" src="SyliaWebsite/Page_Images/Right_Arrow.png" alt="Right Arrow">
+
+    <script>
+        // List of background images
+        const backgrounds = [
+            "SyliaWebsite/Page_Images/Main_Home_Screen.png",
+            "SyliaWebsite/Page_Images/Game_Region_Info.png",
+            "SyliaWebsite/Page_Images/Trainer_Info.png"
+        ];
+
+        // Current background index
+        let currentIndex = 0;
+
+        // Function to change the background
+        function changeBackground(index) {
+            if (index < 0) {
+                currentIndex = backgrounds.length - 1;
+            } else if (index >= backgrounds.length) {
+                currentIndex = 0;
+            } else {
+                currentIndex = index;
+            }
+            document.body.style.backgroundImage = `url('${backgrounds[currentIndex]}')`;
+        }
+
+        // Event listeners for arrow clicks
+        document.getElementById('left-arrow').addEventListener('click', function() {
+            changeBackground(currentIndex - 1);
+        });
+
+        document.getElementById('right-arrow').addEventListener('click', function() {
+            changeBackground(currentIndex + 1);
+        });
+    </script>
 </body>
 </html>
