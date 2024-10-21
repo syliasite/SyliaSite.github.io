@@ -278,6 +278,56 @@
             var modal = document.getElementById("imageModal");
             modal.style.display = "none";
         }
-        </script>
+
+        function preloadImages(imageArray) {
+        imageArray.forEach((src) => {
+            const img = new Image(); // Create a new image object
+            img.src = src; // Set the source to trigger loading
+        });
+    }
+
+    const imagesToPreload = [
+        "SyliaWebsite/Buncti.png",
+        "SyliaWebsite/Harepin.png",
+        "SyliaWebsite/Faenestrel.png",
+        "SyliaWebsite/Geckoal.png",
+        "SyliaWebsite/Thermtile.png",
+        "SyliaWebsite/Foundrizard.png",
+        "SyliaWebsite/Tunibble.png",
+        "SyliaWebsite/Tunerve.png",
+        "SyliaWebsite/Tunoble.png",
+        "SyliaWebsite/Stritten.png",
+        "SyliaWebsite/Sameowrai.png",
+        "SyliaWebsite/Ninslash.png",
+        "SyliaWebsite/Crawn.png",
+        "SyliaWebsite/Rookaw.png",
+        "SyliaWebsite/Imperaven.png",
+        "SyliaWebsite/Oxinch.png",
+        "SyliaWebsite/Sweetipede.png",
+        "SyliaWebsite/Ekishok.png",
+        "SyliaWebsite/Capif.png",
+        "SyliaWebsite/Curcaper.png",
+        "SyliaWebsite/Caphloret.png",
+        "SyliaWebsite/Craweak.png",
+        "SyliaWebsite/Hermitress.png",
+        "SyliaWebsite/OrencinN.png",
+        "SyliaWebsite/Groul.png",
+        "SyliaWebsite/Grounted.png",
+        "SyliaWebsite/Graunting.png",
+        "SyliaWebsite/Pebbrow.png",
+        "SyliaWebsite/Unistone.png",
+        "SyliaWebsite/Scuddog.png",
+        "SyliaWebsite/Psycanine.png",
+        "SyliaWebsite/Grorant.png"
+    ];
+
+    // Call the function to preload images
+    preloadImages(imagesToPreload);
+
+    // Preload images when the document is ready
+    document.addEventListener('DOMContentLoaded', () => {
+        preloadImages(imagesToPreload);
+    });
+    </script>
 </body>
 </html>
