@@ -289,14 +289,48 @@ function openModal(imageSrc) {
     // Create the audio file path and play the sound
     var crySound = new Audio('SyliaWebsite/Cries/' + pokemonName + '.ogg');
 
-    crySound.volume = 0.25;
+    crySound.volume = 0.4;
+
+    crySound.play();
+}
+
+function openModal(imageSrc) {
+    var modal = document.getElementById("imageModal");
+    var modalImage = document.getElementById("modalImage");
+    var searchTextbox = document.getElementById("searchTextbox");
+
+    modal.style.display = "block";  // Show modal
+    modalImage.src = imageSrc;      // Set the modal image source
+    searchTextbox.style.display = "none";
+
+    var captionText = document.getElementById("caption");
+    captionText.innerHTML = imageSrc.split('/').pop();  // Set image name as caption
+
+    // Add the 'show' class to trigger the fade-in effect
+    setTimeout(function() {
+        modal.classList.add('show');
+    }, 10);  // Small delay to allow CSS transition to apply
+
+    // Extract Pokémon name from the image source and convert to uppercase
+    var pokemonName = imageSrc.split('/').pop().split('.')[0].toUpperCase();
+
+    // Create the audio file path and play the sound
+    var crySound = new Audio('SyliaWebsite/Cries/' + pokemonName + '.ogg');
+
+    crySound.volume = 0.4;
 
     crySound.play();
 }
 
 function closeModal() {
     var modal = document.getElementById("imageModal");
-    modal.style.display = "none";
+
+    // Remove the 'show' class when closing the modal
+    modal.classList.remove('show');
+    
+    setTimeout(function() {
+        modal.style.display = "none";  // Hide modal after fade-out
+    }, 0);  // Wait for the fade-out animation to finish (same as the transition time)
     
     var searchTextbox = document.getElementById("searchTextbox");
     searchTextbox.style.display = "block";
@@ -310,47 +344,39 @@ function closeModal() {
         });
     }
 
-    /*
     const imagesToPreload = [
-        "SyliaWebsite/Buncti.png",
-        "SyliaWebsite/Harepin.png",
-        "SyliaWebsite/Faenestrel.png",
-        "SyliaWebsite/Geckoal.png",
-        "SyliaWebsite/Thermtile.png",
-        "SyliaWebsite/Foundrizard.png",
-        "SyliaWebsite/Tunibble.png",
-        "SyliaWebsite/Tunerve.png",
-        "SyliaWebsite/Tunoble.png",
-        "SyliaWebsite/Stritten.png",
-        "SyliaWebsite/Sameowrai.png",
-        "SyliaWebsite/Ninslash.png",
-        "SyliaWebsite/Crawn.png",
-        "SyliaWebsite/Rookaw.png",
-        "SyliaWebsite/Imperaven.png",
-        "SyliaWebsite/Oxinch.png",
-        "SyliaWebsite/Sweetipede.png",
-        "SyliaWebsite/Ekishok.png",
-        "SyliaWebsite/Capif.png",
-        "SyliaWebsite/Curcaper.png",
-        "SyliaWebsite/Caphloret.png",
-        "SyliaWebsite/Craweak.png",
-        "SyliaWebsite/Hermitress.png",
-        "SyliaWebsite/OrencinN.png",
-        "SyliaWebsite/Groul.png",
-        "SyliaWebsite/Grounted.png",
-        "SyliaWebsite/Graunting.png",
-        "SyliaWebsite/Pebbrow.png",
-        "SyliaWebsite/Unistone.png",
-        "SyliaWebsite/Scuddog.png",
-        "SyliaWebsite/Psycanine.png",
-        "SyliaWebsite/Grorant.png"
-    ];
-    */
-
-    const imagesToPreload = [
-        //"SyliaWebsite/Buncti.png",
-        //"SyliaWebsite/Harepin.png",
-        //"SyliaWebsite/Faenestrel.png",
+        "SyliaWebsite/DexPng/Buncti.png",
+        "SyliaWebsite/DexPng/Harepin.png",
+        "SyliaWebsite/DexPng/Faenestrel.png",
+        "SyliaWebsite/DexPng/Geckoal.png",
+        "SyliaWebsite/DexPng/Thermtile.png",
+        "SyliaWebsite/DexPng/Foundrizard.png",
+        "SyliaWebsite/DexPng/Tunibble.png",
+        "SyliaWebsite/DexPng/Tunerve.png",
+        "SyliaWebsite/DexPng/Tunoble.png",
+        "SyliaWebsite/DexPng/Stritten.png",
+        "SyliaWebsite/DexPng/Sameowrai.png",
+        "SyliaWebsite/DexPng/Ninslash.png",
+        "SyliaWebsite/DexPng/Crawn.png",
+        "SyliaWebsite/DexPng/Rookaw.png",
+        "SyliaWebsite/DexPng/Imperaven.png",
+        "SyliaWebsite/DexPng/Oxinch.png",
+        "SyliaWebsite/DexPng/Sweetipede.png",
+        "SyliaWebsite/DexPng/Ekishok.png",
+        "SyliaWebsite/DexPng/Capif.png",
+        "SyliaWebsite/DexPng/Curcaper.png",
+        "SyliaWebsite/DexPng/Caphloret.png",
+        "SyliaWebsite/DexPng/Craweak.png",
+        "SyliaWebsite/DexPng/Hermitress.png",
+        "SyliaWebsite/DexPng/OrencinN.png",
+        "SyliaWebsite/DexPng/Groul.png",
+        "SyliaWebsite/DexPng/Grounted.png",
+        "SyliaWebsite/DexPng/Graunting.png",
+        "SyliaWebsite/DexPng/Pebbrow.png",
+        "SyliaWebsite/DexPng/Unistone.png",
+        "SyliaWebsite/DexPng/Scuddog.png",
+        "SyliaWebsite/DexPng/Psycanine.png",
+        "SyliaWebsite/DexPng/Grorant.png"
     ]
 
     // Call the function to preload images

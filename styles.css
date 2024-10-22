@@ -184,6 +184,7 @@ input[type="text"] {
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
+    transition: 2s ease-in-out;
     z-index: 1; /* Sit on top */
     left: 0;
     top: 10%;
@@ -195,6 +196,17 @@ input[type="text"] {
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
     overflow: hidden; /* Hide scrollbars */
+}
+
+/* Modal Image Initial Style */
+#modalImage {
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out; /* Adjust duration as needed */
+}
+
+/* When modal is open */
+.modal.show #modalImage {
+    opacity: 1;
 }
 
 .modal-content {
