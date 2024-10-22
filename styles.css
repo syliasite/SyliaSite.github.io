@@ -6,8 +6,8 @@
 
 h1 {
     text-align: center;
-    color: white;
-    margin-top: 40px;
+    margin-top: 30px;
+    text-shadow: 2px 2px 4px rgba(59, 124, 199, 0.7); /* Shadow effect */
 }
 
 body {
@@ -22,7 +22,7 @@ header {
 .navbar {
     list-style: none;
     display: flex;
-    justify-content: center;
+    justify-content: left;
 }
 
 .navbar li {
@@ -38,13 +38,33 @@ header {
 }
 
 .navbar a:hover {
-    background-color: #444;
-    border-radius: 5px;
+    background: linear-gradient(180deg, #000000, #000000, #000,  #111, #222, #444,#888, #ffffff);
+}
+
+.navbar .active {
+    background: linear-gradient(180deg, #000000, #000000, #000,  #111, #222, #444,#888, #ffffff);
 }
 
 .section {
     padding: 50px;
     text-align: center;
+}
+
+.search-textbox {
+    position: absolute;
+    top: 164px;
+    left: 1250px;
+    z-index: 1000; 
+}
+
+input[type="text"] {
+    font-size: 28px; /* Change this value to your desired font size */
+}
+
+.search-textbox input {
+    border: none; 
+    outline: none; 
+    width: 300px; 
 }
 
 .arrow {
@@ -69,20 +89,47 @@ header {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
     gap: 20px; /* Space between the boxes */
-    padding: 50px;
+    padding-left: 15vw;
+    padding-right: 15vw;
+    padding-bottom: 50px;
+    padding-top: 50px;
 }
 
 .image-box-wrapper {
-    text-align: center;
+    text-align: left;
+    align-items: center;
+    position: relative;
     margin: 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.info {
+    position: relative;
+    justify-content: space-evenly;
+    left: 0px;
+    text-align: left;
+    padding-left: 2.4vw;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    display: inline-block;
+}
+
+.info img {
+    position: relative;
+    left: 1px;
+    border-radius: 10px;
 }
 
 .image-box {
     background-color: rgba(200, 200, 200, 0.8); /* Light grey with some transparency */
     border-radius: 15px;
+    border: 1px solid black; 
     padding: 0;
     width: 100%;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
@@ -104,8 +151,15 @@ header {
 
 .image-box-wrapper p {
     margin-top: 0;
-    font-size: 16px;
     color: #333;
+}
+
+.mon-name {
+    font-size: 24px;
+}
+
+.type {
+    max-width: 100px;
 }
 
 /* Media query for smaller screens */
@@ -134,8 +188,8 @@ header {
     left: 0;
     top: 10%;
     left: 15%;
-    width: 70%; /* Full width */
-    height: auto; /* Full height */
+    width: 70%; /* Full width */    
+    height: 78%; /* Full height */
     border-radius: 20px;
     border: 5px solid white; /* Outline of the image */
     background-color: rgb(0,0,0); /* Fallback color */
@@ -166,4 +220,8 @@ header {
     color: #bbb;
     text-decoration: none;
     cursor: pointer;
+}
+
+.search {
+    padding-top: 30px;
 }

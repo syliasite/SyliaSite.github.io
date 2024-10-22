@@ -13,7 +13,7 @@
     body, html {
         height: 100%;
         margin: 0;
-        background: url('SyliaWebsite/Page_Images/WebsiteBG.png') no-repeat center center fixed;
+        background: url('SyliaWebsite/Page_Images/WebsiteBG0.png') no-repeat center center fixed;
         background-size: cover;
     }
 </style>
@@ -22,264 +22,286 @@
         <nav>
             <ul class="navbar">
                 <li><a href="index.html">HOME</a></li>
-                <li><a href="dex.html">DEX</a></li>
+                <li><a href="dex.html" class="active">DEX</a></li>
                 <li><a href="#faq">FAQ</a></li>
                 <li><a href="#credits">CREDITS</a></li>
             </ul>
         </nav>
     </header>
-    <h1 style="font-size: 42px">The Sylia Dex</h1>
+    <div class="search-textbox" id="searchTextbox">
+        <input type="text" id="searchInput" placeholder="Search..." onkeyup="searchDex()">
+    </div>
+    <h1 style="font-size: 42px; color: black;">THE SYLIA DEX</h1>
+
+    <img class="search" src="SyliaWebsite/Page_Images/Search_Bar.png" alt="Search Bar">
 
     <!-- Modal -->
-<div id="imageModal" class="modal">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <img class="modal-content" id="modalImage">
-    <div id="caption"></div>
-</div>
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="caption"></div>
+    </div>
 
         <!-- Image Display Section -->
         <div class="image-container">
             <div class="image-box-wrapper">
                 <div class="image-box">
-                    <img src="SyliaWebsite/MonPngResized/Buncti.png" alt="N.001" onclick="openModal('SyliaWebsite/Buncti.png')">
+                    <img src="SyliaWebsite/MonPngResized/Buncti.png" alt="Buncti N°001 Grass" onclick="openModal('SyliaWebsite/DexPng/Buncti.png')">
                 </div>
-                <p><b>N.001<br>BUNCTI<br>Grass</b></p>
+                <p class= "info">&nbsp;&nbsp;<b>N°001<br><span class="mon-name">BUNCTI</span><br></b><img src="SyliaWebsite/TypeIcon/GrassIcon.PNG" class="type" alt="GrassIcon"></p>
             </div>
             
             <div class="image-box-wrapper">
                 <div class="image-box">
-                    <img src="SyliaWebsite/MonPngResized/Harepin.png" alt="N.002" onclick="openModal('SyliaWebsite/Harepin.png')">
+                    <img src="SyliaWebsite/MonPngResized/Harepin.png" alt="Harepin N°002 Grass" onclick="openModal('SyliaWebsite/DexPng/Harepin.png')">
                 </div>
-                <p><b>N.002<br>HAREPIN<br>Grass</b></p>
+                <p class= "info">&nbsp;&nbsp;<b>N°002<br><span class="mon-name">HAREPIN</span><br></b><img src="SyliaWebsite/TypeIcon/GrassIcon.PNG" class="type" alt="GrassIcon"></p>
             </div>
             
             <div class="image-box-wrapper">
                 <div class="image-box">
-                    <img src="SyliaWebsite/MonPngResized/Faenestrel.png" alt="N.003" onclick="openModal('SyliaWebsite/Faenestrel.png')">
+                    <img src="SyliaWebsite/MonPngResized/Faenestrel.png" alt="Faenestrel N°003 Grass Fairy" onclick="openModal('SyliaWebsite/DexPng/Faenestrel.png')">
                 </div>
-                <p><b>N.003<br>FAENESTREL<br>Grass / Fairy</b></p>
+                <p class= "info">&nbsp;&nbsp;<b>N°003<br><span class="mon-name">FAENESTREL</span><br></b><img src="SyliaWebsite/TypeIcon/GrassIcon.PNG" class="type" alt="GrassIcon"> <img src="SyliaWebsite/TypeIcon/FairyIcon.PNG" class="type" alt="FairyIcon"></p>
             </div>
             
             <div class="image-box-wrapper">
                 <div class="image-box">
-                    <img src="SyliaWebsite/MonPngResized/Geckoal.png" alt="N.004" onclick="openModal('SyliaWebsite/Geckoal.png')">
+                    <img src="SyliaWebsite/MonPngResized/Geckoal.png" alt="Geckoal N°004 Fire" onclick="openModal('SyliaWebsite/DexPng/Geckoal.png')">
                 </div>
-                <p><b>N.004<br>GECKOAL<br>Fire</b></p>
+                <p class= "info">&nbsp;&nbsp;<b>N°004<br><span class="mon-name">GECKOAL</span><br></b><img src="SyliaWebsite/TypeIcon/FireIcon.PNG" class="type" alt="FireIcon"></p>
             </div>
             
             <div class="image-box-wrapper">
                 <div class="image-box">
-                    <img src="SyliaWebsite/MonPngResized/Thermtile.png" alt="N.005" onclick="openModal('SyliaWebsite/Thermtile.png')">
+                    <img src="SyliaWebsite/MonPngResized/Thermtile.png" alt="Thermtile N°005 Fire" onclick="openModal('SyliaWebsite/DexPng/Thermtile.png')">
                 </div>
-                <p><b>N.005<br>THERMTILE<br>Fire</b></p>
+                <p class= "info">&nbsp;&nbsp;<b>N°005<br><span class="mon-name">THERMTILE</span><br></b><img src="SyliaWebsite/TypeIcon/FireIcon.PNG" class="type" alt="FireIcon"></p>
             </div>
             
             <div class="image-box-wrapper">
                 <div class="image-box">
-                    <img src="SyliaWebsite/MonPngResized/Foundrizard.png" alt="N.006" onclick="openModal('SyliaWebsite/Foundrizard.png')">
+                    <img src="SyliaWebsite/MonPngResized/Foundrizard.png" alt="Foundrizard N°006 Fire Steel" onclick="openModal('SyliaWebsite/DexPng/Foundrizard.png')">
                 </div>
-                <p><b>N.006<br>FOUNDRIZARD<br>Fire / Steel</b></p>
+                <p class= "info">&nbsp;&nbsp;<b>N°006<br><span class="mon-name">FOUNDRIZARD</span><br></b><img src="SyliaWebsite/TypeIcon/FireIcon.PNG" class="type" alt="FireIcon"> <img src="SyliaWebsite/TypeIcon/SteelIcon.PNG" class="type" alt="SteelIcon"></p>
             </div>
             
             <div class="image-box-wrapper">
                 <div class="image-box">
-                    <img src="SyliaWebsite/MonPngResized/Tunibble.png" alt="N.007" onclick="openModal('SyliaWebsite/Tunibble.png')">
+                    <img src="SyliaWebsite/MonPngResized/Tunibble.png" alt="Tunibble N°007 Water" onclick="openModal('SyliaWebsite/DexPng/Tunibble.png')">
                 </div>
-                <p><b>N.007<br>TUNIBBLE<br>Water</b></p>
+                <p class= "info">&nbsp;&nbsp;<b>N°007<br><span class="mon-name">TUNIBBLE</span><br></b><img src="SyliaWebsite/TypeIcon/WaterIcon.PNG" class="type" alt="WaterIcon"></p>
             </div>
             
             <div class="image-box-wrapper">
                 <div class="image-box">
-                    <img src="SyliaWebsite/MonPngResized/Tunerve.png" alt="N.008" onclick="openModal('SyliaWebsite/Tunerve.png')">
+                    <img src="SyliaWebsite/MonPngResized/Tunerve.png" alt="Tunerve N°008 Water" onclick="openModal('SyliaWebsite/DexPng/Tunerve.png')">
                 </div>
-                <p><b>N.008<br>TUNERVE<br>Water</b></p>
+                <p class= "info">&nbsp;&nbsp;<b>N°008<br><span class="mon-name">TUNERVE</span><br></b><img src="SyliaWebsite/TypeIcon/WaterIcon.PNG" class="type" alt="WaterIcon"></p>
             </div>
             
             <div class="image-box-wrapper">
                 <div class="image-box">
-                    <img src="SyliaWebsite/MonPngResized/Tunoble.png" alt="N.009" onclick="openModal('SyliaWebsite/Tunoble.png')">
+                    <img src="SyliaWebsite/MonPngResized/Tunoble.png" alt="Tunoble N°009 Water Fighting" onclick="openModal('SyliaWebsite/DexPng/Tunoble.png')">
                 </div>
-                <p><b>N.009<br>TUNOBLE<br>Water / Fighting</b></p>
+                <p class= "info">&nbsp;&nbsp;<b>N°009<br><span class="mon-name">TUNOBLE</span><br></b><img src="SyliaWebsite/TypeIcon/WaterIcon.PNG" class="type" alt="WaterIcon"> <img src="SyliaWebsite/TypeIcon/FightingIcon.PNG" class="type" alt="FightingIcon"></p>
             </div>
             
             <div class="image-box-wrapper">
                 <div class="image-box">
-                    <img src="SyliaWebsite/MonPngResized/Stritten.png" alt="N.010" onclick="openModal('SyliaWebsite/Stritten.png')">
+                    <img src="SyliaWebsite/MonPngResized/Stritten.png" alt="Stritten N°010 Normal" onclick="openModal('SyliaWebsite/DexPng/Stritten.png')">
                 </div>
-                <p><b>N.010<br>STRITTEN<br>Normal</b></p>
+                <p class= "info">&nbsp;&nbsp;<b>N°010<br><span class="mon-name">STRITTEN</span><br></b><img src="SyliaWebsite/TypeIcon/NormalIcon.PNG" class="type" alt="NormalIcon"></p>
             </div>
             
             <div class="image-box-wrapper">
                 <div class="image-box">
-                    <img src="SyliaWebsite/MonPngResized/Sameowrai.png" alt="N.011" onclick="openModal('SyliaWebsite/Sameowrai.png')">
+                    <img src="SyliaWebsite/MonPngResized/Sameowrai.png" alt="Sameowrai N°011 Normal" onclick="openModal('SyliaWebsite/DexPng/Sameowrai.png')">
                 </div>
-                <p><b>N.011<br>SAMEOWRAI<br>Normal</b></p>
+                <p class= "info">&nbsp;&nbsp;<b>N°011<br><span class="mon-name">SAMEOWRAI</span><br></b><img src="SyliaWebsite/TypeIcon/NormalIcon.PNG" class="type" alt="NormalIcon"></p>
             </div>
             
             <div class="image-box-wrapper">
                 <div class="image-box">
-                    <img src="SyliaWebsite/MonPngResized/Ninslash.png" alt="N.012" onclick="openModal('SyliaWebsite/Ninslash.png')">
+                    <img src="SyliaWebsite/MonPngResized/Ninslash.png" alt="Ninslash N°012 Dark" onclick="openModal('SyliaWebsite/DexPng/Ninslash.png')">
                 </div>
-                <p><b>N.012<br>NINSLASH<br>Dark</b></p>
+                <p class= "info">&nbsp;&nbsp;<b>N°012<br><span class="mon-name">NINSLASH</span><br></b><img src="SyliaWebsite/TypeIcon/DarkIcon.PNG" class="type" alt="DarkIcon"></p>
             </div>
             
             <div class="image-box-wrapper">
                 <div class="image-box">
-                    <img src="SyliaWebsite/MonPngResized/Crawn.png" alt="N.013" onclick="openModal('SyliaWebsite/Crawn.png')">
+                    <img src="SyliaWebsite/MonPngResized/Crawn.png" alt="Crawn N°013 Normal Flying" onclick="openModal('SyliaWebsite/DexPng/Crawn.png')">
                 </div>
-                <p><b>N.013<br>CRAWN<br>Normal / Flying</b></p>
+                <p class= "info">&nbsp;&nbsp;<b>N°013<br><span class="mon-name">CRAWN</span><br></b><img src="SyliaWebsite/TypeIcon/NormalIcon.PNG" class="type" alt="NormalIcon"> <img src="SyliaWebsite/TypeIcon/FlyingIcon.PNG" class="type" alt="FlyingIcon"></p>
             </div>
             
             <div class="image-box-wrapper">
                 <div class="image-box">
-                    <img src="SyliaWebsite/MonPngResized/Rookaw.png" alt="N.014" onclick="openModal('SyliaWebsite/Rookaw.png')">
+                    <img src="SyliaWebsite/MonPngResized/Rookaw.png" alt="Rookaw N°014 Normal Flying" onclick="openModal('SyliaWebsite/DexPng/Rookaw.png')">
                 </div>
-                <p><b>N.014<br>ROOKAW<br>Normal / Flying</b></p>
+                <p class= "info">&nbsp;&nbsp;<b>N°014<br><span class="mon-name">ROOKAW</span><br></b><img src="SyliaWebsite/TypeIcon/NormalIcon.PNG" class="type" alt="NormalIcon"> <img src="SyliaWebsite/TypeIcon/FlyingIcon.PNG" class="type" alt="FlyingIcon"></p>
             </div>
             
             <div class="image-box-wrapper">
                 <div class="image-box">
-                    <img src="SyliaWebsite/MonPngResized/Imperaven.png" alt="N.015" onclick="openModal('SyliaWebsite/Imperaven.png')">
+                    <img src="SyliaWebsite/MonPngResized/Imperaven.png" alt="Imperaven N°015 Dark Flying" onclick="openModal('SyliaWebsite/DexPng/Imperaven.png')">
                 </div>
-                <p><b>N.015<br>IMPERAVEN<br>Dark / Flying</b></p>
+                <p class= "info">&nbsp;&nbsp;<b>N°015<br><span class="mon-name">IMPERAVEN</span><br></b><img src="SyliaWebsite/TypeIcon/DarkIcon.PNG" class="type" alt="DarkIcon"> <img src="SyliaWebsite/TypeIcon/FlyingIcon.PNG" class="type" alt="FlyingIcon"></p>
             </div>
             
             <div class="image-box-wrapper">
                 <div class="image-box">
-                    <img src="SyliaWebsite/MonPngResized/Oxinch.png" alt="N.016" onclick="openModal('SyliaWebsite/Oxinch.png')">
+                    <img src="SyliaWebsite/MonPngResized/Oxinch.png" alt="Oxinch N°016 Bug Fairy" onclick="openModal('SyliaWebsite/DexPng/Oxinch.png')">
                 </div>
-                <p><b>N.016<br>OXINCH<br>Bug / Fairy</b></p>
-            </div>
-            
-            <div class="image-box-wrapper">
-                <div class="image-box">
-                    <img src="SyliaWebsite/MonPngResized/Sweetipede.png" alt="N.017" onclick="openModal('SyliaWebsite/Sweetipede.png')">
-                </div>
-                <p><b>N.017<br>SWEETIPEDE<br>Bug / Fairy</b></p>
-            </div>
-            
-            <div class="image-box-wrapper">
-                <div class="image-box">
-                    <img src="SyliaWebsite/MonPngResized/Ekishok.png" alt="N.018" onclick="openModal('SyliaWebsite/Ekishok.png')">
-                </div>
-                <p><b>N.018<br>EKISHOK<br>Grass / Electric</b></p>
-            </div>
-            
-            <div class="image-box-wrapper">
-                <div class="image-box">
-                    <img src="SyliaWebsite/MonPngResized/Capif.png" alt="N.019" onclick="openModal('SyliaWebsite/Capif.png')">
-                </div>
-                <p><b>N.019<br>CAPIF<br>Grass</b></p>
-            </div>
-            
-            <div class="image-box-wrapper">
-                <div class="image-box">
-                    <img src="SyliaWebsite/MonPngResized/Curcaper.png" alt="N.020" onclick="openModal('SyliaWebsite/Curcaper.png')">
-                </div>
-                <p><b>N.020<br>CURCAPER<br>Grass</b></p>
-            </div>
-            
-            <div class="image-box-wrapper">
-                <div class="image-box">
-                    <img src="SyliaWebsite/MonPngResized/Caphloret.png" alt="N.021" onclick="openModal('SyliaWebsite/Caphloret.png')">
-                </div>
-                <p><b>N.021<br>CAPHLORET<br>Grass</b></p>
-            </div>
-            
-            <div class="image-box-wrapper">
-                <div class="image-box">
-                    <img src="SyliaWebsite/MonPngResized/Craweak.png" alt="N.022" onclick="openModal('SyliaWebsite/Craweak.png')">
-                </div>
-                <p><b>N.022<br>CRAWEAK<br>Bug</b></p>
-            </div>
-            
-            <div class="image-box-wrapper">
-                <div class="image-box">
-                    <img src="SyliaWebsite/MonPngResized/Hermitress.png" alt="N.023" onclick="openModal('SyliaWebsite/Hermitress.png')">
-                </div>
-                <p><b>N.023<br>HERMITRESS<br>Bug / Steel</b></p>
-            </div>
-            
-            <div class="image-box-wrapper">
-                <div class="image-box">
-                    <img src="SyliaWebsite/MonPngResized/OrencinN.png" alt="N.024" onclick="openModal('SyliaWebsite/OrencinN.png')">
-                </div>
-                <p><b>N.024<br>ORENCIN<br>Rock</b></p>
-            </div>
-            
-            <div class="image-box-wrapper">
-                <div class="image-box">
-                    <img src="SyliaWebsite/MonPngResized/Groul.png" alt="N.025" onclick="openModal('SyliaWebsite/Groul.png')">
-                </div>
-                <p><b>N.025<br>GROUL<br>Ground / Ghost</b></p>
-            </div>
-            
-            <div class="image-box-wrapper">
-                <div class="image-box">
-                    <img src="SyliaWebsite/MonPngResized/Grounted.png" alt="N.026" onclick="openModal('SyliaWebsite/Grounted.png')">
-                </div>
-                <p><b>N.026<br>GROUNTED<br>Ground / Ghost</b></p>
-            </div>
-            
-            <div class="image-box-wrapper">
-                <div class="image-box">
-                    <img src="SyliaWebsite/MonPngResized/Graunting.png" alt="N.027" onclick="openModal('SyliaWebsite/Graunting.png')">
-                </div>
-                <p><b>N.027<br>GRAUNTING<br>Ground / Ghost</b></p>
-            </div>
-            
-            <div class="image-box-wrapper">
-                <div class="image-box">
-                    <img src="SyliaWebsite/MonPngResized/Pebbrow.png" alt="N.028" onclick="openModal('SyliaWebsite/Pebbrow.png')">
-                </div>
-                <p><b>N.028<br>PEBBROW<br>Rock</b></p>
-            </div>
-            
-            <div class="image-box-wrapper">
-                <div class="image-box">
-                    <img src="SyliaWebsite/MonPngResized/Unistone.png" alt="N.029" onclick="openModal('SyliaWebsite/Unistone.png')">
-                </div>
-                <p><b>N.029<br>UNISTONE<br>Rock / Fighting</b></p>
+                <p class= "info">&nbsp;&nbsp;<b>N°016<br><span class="mon-name">OXINCH</span><br></b><img src="SyliaWebsite/TypeIcon/BugIcon.PNG" class="type" alt="BugIcon"> <img src="SyliaWebsite/TypeIcon/FairyIcon.PNG" class="type" alt="FairyIcon"></p>
             </div>
 
             <div class="image-box-wrapper">
                 <div class="image-box">
-                    <img src="SyliaWebsite/MonPngResized/Scuddog.png" alt="N.030" onclick="openModal('SyliaWebsite/Scuddog.png')">
+                    <img src="SyliaWebsite/MonPngResized/Sweetipede.png" alt="Sweetipede N°017 Bug Fairy" onclick="openModal('SyliaWebsite/DexPng/Sweetipede.png')">
                 </div>
-                <p><b>N.030<br>SCUDDOG<br>Psychic</b></p>
+                <p class= "info">&nbsp;&nbsp;<b>N°017<br><span class="mon-name">SWEETIPEDE</span><br></b><img src="SyliaWebsite/TypeIcon/BugIcon.PNG" class="type" alt="BugIcon"> <img src="SyliaWebsite/TypeIcon/FairyIcon.PNG" class="type" alt="FairyIcon"></p>
             </div>
 
-            <div class="image-box-wrapper">
-                <div class="image-box">
-                    <img src="SyliaWebsite/MonPngResized/Psycanine.png" alt="N.031" onclick="openModal('SyliaWebsite/Psycanine.png')">
-                </div>
-                <p><b>N.031<br>PSYCANINE<br>Psychic</b></p>
-            </div>
+<div class="image-box-wrapper">
+    <div class="image-box">
+        <img src="SyliaWebsite/MonPngResized/Ekishok.png" alt="Ekishok N°018 Grass Electric" onclick="openModal('SyliaWebsite/DexPng/Ekishok.png')">
+    </div>
+    <p class= "info">&nbsp;&nbsp;<b>N°018<br><span class="mon-name">EKISHOK</span><br></b><img src="SyliaWebsite/TypeIcon/GrassIcon.PNG" class="type" alt="GrassIcon"> <img src="SyliaWebsite/TypeIcon/ElectricIcon.PNG" class="type" alt="ElectricIcon"></p>
+</div>
 
-            <div class="image-box-wrapper">
-                <div class="image-box">
-                    <img src="SyliaWebsite/MonPngResized/Grorant.png" alt="N.032" onclick="openModal('SyliaWebsite/Grorant.png')">
-                </div>
-                <p><b>N.032<br>GRORANT<br>Water</b></p>
-            </div>
+<div class="image-box-wrapper">
+    <div class="image-box">
+        <img src="SyliaWebsite/MonPngResized/Capif.png" alt="Capif N°019 Grass" onclick="openModal('SyliaWebsite/DexPng/Capif.png')">
+    </div>
+    <p class= "info">&nbsp;&nbsp;<b>N°019<br><span class="mon-name">CAPIF</span><br></b><img src="SyliaWebsite/TypeIcon/GrassIcon.PNG" class="type" alt="GrassIcon"></p>
+</div>
+
+<div class="image-box-wrapper">
+    <div class="image-box">
+        <img src="SyliaWebsite/MonPngResized/Curcaper.png" alt="Curcaper N°020 Grass" onclick="openModal('SyliaWebsite/DexPng/Curcaper.png')">
+    </div>
+    <p class= "info">&nbsp;&nbsp;<b>N°020<br><span class="mon-name">CURCAPER</span><br></b><img src="SyliaWebsite/TypeIcon/GrassIcon.PNG" class="type" alt="GrassIcon"></p>
+</div>
+
+<div class="image-box-wrapper">
+    <div class="image-box">
+        <img src="SyliaWebsite/MonPngResized/Caphloret.png" alt="Caphloret N°021 Grass" onclick="openModal('SyliaWebsite/DexPng/Caphloret.png')">
+    </div>
+    <p class= "info">&nbsp;&nbsp;<b>N°021<br><span class="mon-name">CAPHLORET</span><br></b><img src="SyliaWebsite/TypeIcon/GrassIcon.PNG" class="type" alt="GrassIcon"></p>
+</div>
+
+<div class="image-box-wrapper">
+    <div class="image-box">
+        <img src="SyliaWebsite/MonPngResized/Craweak.png" alt="Craweak N°022 Bug" onclick="openModal('SyliaWebsite/DexPng/Craweak.png')">
+    </div>
+    <p class= "info">&nbsp;&nbsp;<b>N°022<br><span class="mon-name">CRAWEAK</span><br></b><img src="SyliaWebsite/TypeIcon/BugIcon.PNG" class="type" alt="BugIcon"></p>
+</div>
+
+<div class="image-box-wrapper">
+    <div class="image-box">
+        <img src="SyliaWebsite/MonPngResized/Hermitress.png" alt="Hermitress N°023 Bug Steel" onclick="openModal('SyliaWebsite/DexPng/Hermitress.png')">
+    </div>
+    <p class= "info">&nbsp;&nbsp;<b>N°023<br><span class="mon-name">HERMITRESS</span><br></b><img src="SyliaWebsite/TypeIcon/BugIcon.PNG" class="type" alt="BugIcon"> <img src="SyliaWebsite/TypeIcon/SteelIcon.PNG" class="type" alt="SteelIcon"></p>
+</div>
+
+<div class="image-box-wrapper">
+    <div class="image-box">
+        <img src="SyliaWebsite/MonPngResized/OrencinN.png" alt="OrencinN N°024 Rock" onclick="openModal('SyliaWebsite/DexPng/OrencinN.png')">
+    </div>
+    <p class= "info">&nbsp;&nbsp;<b>N°024<br><span class="mon-name">ORENCIN</span><br></b><img src="SyliaWebsite/TypeIcon/RockIcon.PNG" class="type" alt="RockIcon"></p>
+</div>
+
+<div class="image-box-wrapper">
+    <div class="image-box">
+        <img src="SyliaWebsite/MonPngResized/Groul.png" alt="Groul N°025 Ground Ghost" onclick="openModal('SyliaWebsite/DexPng/Groul.png')">
+    </div>
+    <p class= "info">&nbsp;&nbsp;<b>N°025<br><span class="mon-name">GROUL</span><br></b><img src="SyliaWebsite/TypeIcon/GroundIcon.PNG" class="type" alt="GroundIcon"> <img src="SyliaWebsite/TypeIcon/GhostIcon.PNG" class="type" alt="GhostIcon"></p>
+</div>
+
+<div class="image-box-wrapper">
+    <div class="image-box">
+        <img src="SyliaWebsite/MonPngResized/Grounted.png" alt="Grounted N°026 Ground Ghost" onclick="openModal('SyliaWebsite/DexPng/Grounted.png')">
+    </div>
+    <p class= "info">&nbsp;&nbsp;<b>N°026<br><span class="mon-name">GROUNTED</span><br></b><img src="SyliaWebsite/TypeIcon/GroundIcon.PNG" class="type" alt="GroundIcon"> <img src="SyliaWebsite/TypeIcon/GhostIcon.PNG" class="type" alt="GhostIcon"></p>
+</div>
+
+<div class="image-box-wrapper">
+    <div class="image-box">
+        <img src="SyliaWebsite/MonPngResized/Graunting.png" alt="Graunting N°027 Ground Ghost" onclick="openModal('SyliaWebsite/DexPng/Graunting.png')">
+    </div>
+    <p class= "info">&nbsp;&nbsp;<b>N°027<br><span class="mon-name">GRAUNTING</span><br></b><img src="SyliaWebsite/TypeIcon/GroundIcon.PNG" class="type" alt="GroundIcon"> <img src="SyliaWebsite/TypeIcon/GhostIcon.PNG" class="type" alt="GhostIcon"></p>
+</div>
+
+<div class="image-box-wrapper">
+    <div class="image-box">
+        <img src="SyliaWebsite/MonPngResized/Pebbrow.png" alt="Pebbrow N°028 Rock" onclick="openModal('SyliaWebsite/DexPng/Pebbrow.png')">
+    </div>
+    <p class= "info">&nbsp;&nbsp;<b>N°028<br><span class="mon-name">PEBBROW</span><br></b><img src="SyliaWebsite/TypeIcon/RockIcon.PNG" class="type" alt="RockIcon"></p>
+</div>
+
+<div class="image-box-wrapper">
+    <div class="image-box">
+        <img src="SyliaWebsite/MonPngResized/Unistone.png" alt="Unistone N°029 Rock Fighting" onclick="openModal('SyliaWebsite/DexPng/Unistone.png')">
+    </div>
+    <p class= "info">&nbsp;&nbsp;<b>N°029<br><span class="mon-name">UNISTONE</span><br></b><img src="SyliaWebsite/TypeIcon/RockIcon.PNG" class="type" alt="RockIcon"> <img src="SyliaWebsite/TypeIcon/FightingIcon.PNG" class="type" alt="FightingIcon"></p>
+</div>
+
+<div class="image-box-wrapper">
+    <div class="image-box">
+        <img src="SyliaWebsite/MonPngResized/Scuddog.png" alt="Scuddog N°030 Psychic" onclick="openModal('SyliaWebsite/DexPng/Scuddog.png')">
+    </div>
+    <p class= "info">&nbsp;&nbsp;<b>N°030<br><span class="mon-name">SCUDDOG</span><br></b><img src="SyliaWebsite/TypeIcon/PsychicIcon.PNG" class="type" alt="PsychicIcon"></p>
+</div>
+
+<div class="image-box-wrapper">
+    <div class="image-box">
+        <img src="SyliaWebsite/MonPngResized/Psycanine.png" alt="Psycanine N°031 Psychic" onclick="openModal('SyliaWebsite/DexPng/Psycanine.png')">
+    </div>
+    <p class= "info">&nbsp;&nbsp;<b>N°031<br><span class="mon-name">PSYCANINE</span><br></b><img src="SyliaWebsite/TypeIcon/PsychicIcon.PNG" class="type" alt="PsychicIcon"></p>
+</div>
+
+<div class="image-box-wrapper">
+    <div class="image-box">
+        <img src="SyliaWebsite/MonPngResized/Grorant.png" alt="Grorant N°032 Water" onclick="openModal('SyliaWebsite/DexPng/Grorant.png')">
+    </div>
+    <p class= "info">&nbsp;&nbsp;<b>N°032<br><span class="mon-name">GRORANT</span><br></b><img src="SyliaWebsite/TypeIcon/WaterIcon.PNG" class="type" alt="WaterIcon"></p>
+</div>
+
         </div>
 
-        <script>
-            function openModal(imageSrc) {
-            var modal = document.getElementById("imageModal");
-            var modalImage = document.getElementById("modalImage");
-            modal.style.display = "block";
-            modalImage.src = imageSrc;
+    <script>
+function openModal(imageSrc) {
+    var modal = document.getElementById("imageModal");
+    var modalImage = document.getElementById("modalImage");
+    var searchTextbox = document.getElementById("searchTextbox");
 
-            // Optional: Add a caption
-            var captionText = document.getElementById("caption");
-            captionText.innerHTML = imageSrc.split('/').pop(); // Extracts the image name for the caption
-        }
+    modal.style.display = "block";
+    modalImage.src = imageSrc;
+    searchTextbox.style.display = "none";
 
-        function closeModal() {
-            var modal = document.getElementById("imageModal");
-            modal.style.display = "none";
-        }
+    var captionText = document.getElementById("caption");
+    captionText.innerHTML = imageSrc.split('/').pop();
+
+    // Extract Pokémon name from the image source and convert to uppercase
+    var pokemonName = imageSrc.split('/').pop().split('.')[0].toUpperCase();
+
+    // Create the audio file path and play the sound
+    var crySound = new Audio('SyliaWebsite/Cries/' + pokemonName + '.ogg');
+
+    crySound.volume = 0.25;
+
+    crySound.play();
+}
+
+function closeModal() {
+    var modal = document.getElementById("imageModal");
+    modal.style.display = "none";
+    
+    var searchTextbox = document.getElementById("searchTextbox");
+    searchTextbox.style.display = "block";
+}
+
 
         function preloadImages(imageArray) {
         imageArray.forEach((src) => {
@@ -288,6 +310,7 @@
         });
     }
 
+    /*
     const imagesToPreload = [
         "SyliaWebsite/Buncti.png",
         "SyliaWebsite/Harepin.png",
@@ -322,6 +345,13 @@
         "SyliaWebsite/Psycanine.png",
         "SyliaWebsite/Grorant.png"
     ];
+    */
+
+    const imagesToPreload = [
+        "SyliaWebsite/Buncti.png",
+        "SyliaWebsite/Harepin.png",
+        "SyliaWebsite/Faenestrel.png",
+    ]
 
     // Call the function to preload images
     preloadImages(imagesToPreload);
@@ -331,5 +361,26 @@
         preloadImages(imagesToPreload);
     });
     </script>
+
+<script>
+    function searchDex() {
+        document.getElementById('searchInput').addEventListener('input', function() {
+        var input = document.getElementById('searchInput').value.toLowerCase();
+        var dexEntries = document.querySelectorAll('.image-box-wrapper');
+        
+        dexEntries.forEach(function(entry) {
+            var pokemonName = entry.querySelector('img').alt.toLowerCase(); // Assumes alt contains the Pokémon name
+            var dexNumber = entry.querySelector('img').alt.split('N°')[1];  // Extracts the Dex number from alt
+
+            // Check if the input matches either the Pokémon name or the Dex number
+            if (pokemonName.includes(input) || dexNumber === input) {
+                entry.style.display = "";
+            } else {
+                entry.style.display = "none";
+            }
+        });
+    });
+    }
+</script>
 </body>
 </html>
