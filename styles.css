@@ -186,11 +186,10 @@ input[type="text"] {
     position: fixed; /* Stay in place */
     transition: 2s ease-in-out;
     z-index: 1; /* Sit on top */
-    left: 0;
-    top: 10%;
-    left: 15%;
-    width: 70%; /* Full width */    
-    height: 78%; /* Full height */
+    top: calc(9vh - 10px);
+    left: calc(15vw - 10px);
+    width: 70vw;     
+    height: auto;
     border-radius: 20px;
     border: 5px solid white; /* Outline of the image */
     background-color: rgb(0,0,0); /* Fallback color */
@@ -202,6 +201,11 @@ input[type="text"] {
 #modalImage {
     opacity: 0;
     transition: opacity 0.4s ease-in-out; /* Adjust duration as needed */
+    margin-bottom: -20px;
+}
+
+#caption {
+    visibility: hidden;
 }
 
 /* When modal is open */
@@ -212,7 +216,7 @@ input[type="text"] {
 .modal-content {
     display: block;
     height: 100%;
-    width: 100%; /* Full width */
+    width: 100%; 
     height: auto; /* Maintain aspect ratio */
     margin: auto; /* Center the image */
 }
