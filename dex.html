@@ -13,7 +13,6 @@
     body, html {
         height: 100%;
         margin: 0;
-        background: url('SyliaWebsite/Page_Images/WebsiteBG0.png') no-repeat center center fixed;
         background-size: cover;
     }
 </style>
@@ -271,28 +270,6 @@
         </div>
 
     <script>
-function openModal(imageSrc) {
-    var modal = document.getElementById("imageModal");
-    var modalImage = document.getElementById("modalImage");
-    var searchTextbox = document.getElementById("searchTextbox");
-
-    modal.style.display = "block";
-    modalImage.src = imageSrc;
-    searchTextbox.style.display = "none";
-
-    var captionText = document.getElementById("caption");
-    captionText.innerHTML = imageSrc.split('/').pop();
-
-    // Extract Pokémon name from the image source and convert to uppercase
-    var pokemonName = imageSrc.split('/').pop().split('.')[0].toUpperCase();
-
-    // Create the audio file path and play the sound
-    var crySound = new Audio('SyliaWebsite/Cries/' + pokemonName + '.ogg');
-
-    crySound.volume = 0.4;
-
-    crySound.play();
-}
 
 function openModal(imageSrc) {
     var modal = document.getElementById("imageModal");
@@ -312,10 +289,14 @@ function openModal(imageSrc) {
     }, 10);  // Small delay to allow CSS transition to apply
 
     // Extract Pokémon name from the image source and convert to uppercase
-    var pokemonName = imageSrc.split('/').pop().split('.')[0].toUpperCase();
+    var monName = imageSrc.split('/').pop().split('.')[0].toUpperCase();
+
+    console.log(monName);
+
+    if (monName == "ORENCINN") monName = "ORENCIN";
 
     // Create the audio file path and play the sound
-    var crySound = new Audio('SyliaWebsite/Cries/' + pokemonName + '.ogg');
+    var crySound = new Audio('SyliaWebsite/Cries/' + monName + '.ogg');
 
     crySound.volume = 0.4;
 
@@ -335,7 +316,6 @@ function closeModal() {
     var searchTextbox = document.getElementById("searchTextbox");
     searchTextbox.style.display = "block";
 }
-
 
         function preloadImages(imageArray) {
         imageArray.forEach((src) => {
