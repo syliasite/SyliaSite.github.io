@@ -61,6 +61,14 @@ header {
     z-index: 1000;
 }
 
+.SearchInputBG {
+    position: absolute;
+    z-index: 999;
+    top: 149px;
+    right: 14.7vw;
+    border-radius: 20px;
+}
+
 input[type="text"] {
     font-size: 28px; /* Change this value to your desired font size */
 }
@@ -69,14 +77,6 @@ input[type="text"] {
     border: none; 
     outline: none; 
     width: 320px; 
-}
-
-.SearchInputBG {
-    position: absolute;
-    z-index: 999;
-    top: 149px;
-    right: 14.7vw;
-    border-radius: 20px;
 }
 
 .arrow {
@@ -191,6 +191,20 @@ input[type="text"] {
     .image-container {
         grid-template-columns: 1fr; /* 1 column on very small screens */
     }
+    .search-textbox {
+        position: absolute;
+        top: 164px;
+        right: calc(13vw + 70px);
+        z-index: 1000;
+    }
+    
+    .SearchInputBG {
+        position: absolute;
+        z-index: 999;
+        top: 149px;
+        right: 13vw;
+        border-radius: 20px;
+    }
 }
 
 .modal {
@@ -252,4 +266,5 @@ input[type="text"] {
 
 .search {
     padding-top: 30px;
+    overflow-x: hidden;
 }
