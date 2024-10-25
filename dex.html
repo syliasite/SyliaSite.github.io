@@ -33,7 +33,7 @@
     <h1 style="font-size: 42px; color: black;">THE SYLIA DEX</h1>
 
     <img class="search" src="SyliaWebsite/Page_Images/Search_Bar.png" alt="Search Bar">
-    <img class="SearchInputBG" src="SyliaWebsite/Page_Images/SearchInputArea.PNG" alt="Search Input Graphic">
+    <img class="SearchInputBG" id="searchInputBG" src="SyliaWebsite/Page_Images/SearchInputArea.PNG" alt="Search Input Graphic">
 
     <!-- Modal -->
     <div id="imageModal" class="modal">
@@ -276,10 +276,12 @@ function openModal(imageSrc) {
     var modal = document.getElementById("imageModal");
     var modalImage = document.getElementById("modalImage");
     var searchTextbox = document.getElementById("searchTextbox");
+    var searchInputBG = document.getElementById("searchInputBG");
 
     modal.style.display = "block";  // Show modal
     modalImage.src = imageSrc;      // Set the modal image source
     searchTextbox.style.display = "none";
+    searchInputBG.style.display = "none"; 
 
     var captionText = document.getElementById("caption");
     captionText.innerHTML = imageSrc.split('/').pop();  // Set image name as caption
@@ -315,7 +317,9 @@ function closeModal() {
     }, 0);  // Wait for the fade-out animation to finish (same as the transition time)
     
     var searchTextbox = document.getElementById("searchTextbox");
+    var searchInputBG = document.getElementById("searchInputBG");
     searchTextbox.style.display = "block";
+    searchInputBG.style.display = "block";
 }
 
         function preloadImages(imageArray) {
@@ -387,6 +391,45 @@ function closeModal() {
             }
         });
     });
+}
+</script>
+
+
+<script>
+    function openModal2(imageSrc) {
+    var modal = document.getElementById("imageModal");  // Ensure a new ID for Model 2
+    var modalImage = document.getElementById("modalImage");
+    var searchTextbox = document.getElementById("searchTextbox");
+
+    modal.style.display = "block";
+    modalImage.src = imageSrc;
+    searchTextbox.style.display = "none";
+
+    var captionText = document.getElementById("caption");
+    captionText.innerHTML = imageSrc.split('/').pop();
+
+    setTimeout(function() {
+        modal.classList.add('show');
+    }, 10);
+
+    var monName = imageSrc.split('/').pop().split('.')[0].toUpperCase();
+    if (monName == "ORENCINN") monName = "ORENCIN";
+
+    var crySound = new Audio('SyliaWebsite/Cries/' + monName + '.ogg');
+    crySound.volume = 0.4;
+    crySound.play();
+}
+
+function closeModal2() {
+    var modal = document.getElementById("imageModal");
+    modal.classList.remove('show');
+    
+    setTimeout(function() {
+        modal.style.display = "none";
+    }, 0);
+
+    var searchTextbox = document.getElementById("searchTextbox");
+    searchTextbox.style.display = "block";
 }
 </script>
 </body>
