@@ -191,20 +191,6 @@ input[type="text"] {
     .image-container {
         grid-template-columns: 1fr; /* 1 column on very small screens */
     }
-    .search-textbox {
-        position: absolute;
-        top: 164px;
-        right: calc(13vw + 70px);
-        z-index: 1000;
-    }
-    
-    .SearchInputBG {
-        position: absolute;
-        z-index: 999;
-        top: 149px;
-        right: 13vw;
-        border-radius: 20px;
-    }
 }
 
 .modal {
@@ -245,6 +231,32 @@ input[type="text"] {
     width: 100%; 
     height: auto; /* Maintain aspect ratio */
     margin: auto; /* Center the image */
+}
+
+.image-container-2 {
+    /* Different styles for Model 2 if needed */
+    padding-left: 10vw;
+    padding-right: 10vw;
+}
+
+#modalButton1 {
+    position: absolute;
+    bottom: 0.8vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12vw;
+    padding: 2px 5px;
+    font-size: 0.8vw;
+    background-color: #4735ab;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none; /* Initially hidden */
+}
+
+#modalButton1:hover {
+    background-color: #456fa0;
 }
 
 .close {

@@ -40,6 +40,9 @@
         <span class="close" onclick="closeModal()">&times;</span>
         <img class="modal-content" id="modalImage">
         <div id="caption"></div>
+        
+        <!-- New Button for Modal 1 -->
+        <button id="modalButton1" onclick="handleModalButtonClick()">Evolution Line</button>
     </div>
 
         <!-- Image Display Section -->
@@ -271,15 +274,23 @@
         </div>
 
     <script>
+var monName = "";
+var monNameUpper = "";
+var modalImageSrc = "";
 
 function openModal(imageSrc) {
     var modal = document.getElementById("imageModal");
     var modalImage = document.getElementById("modalImage");
     var searchTextbox = document.getElementById("searchTextbox");
     var searchInputBG = document.getElementById("searchInputBG");
+    var modalButton = document.getElementById("modalButton1"); // Reference to the button
 
     modal.style.display = "block";  // Show modal
+    modalButton.style.display = "block"; // Show button when modal opens
     modalImage.src = imageSrc;      // Set the modal image source
+    modalImageSrc = imageSrc;
+    console.log(modalImage);
+    console.log(modalImage.src);
     searchTextbox.style.display = "none";
     searchInputBG.style.display = "none"; 
 
@@ -289,31 +300,49 @@ function openModal(imageSrc) {
     // Add the 'show' class to trigger the fade-in effect
     setTimeout(function() {
         modal.classList.add('show');
+        document.getElementById("modalButton1").innerText = "Evolution Line";
     }, 10);  // Small delay to allow CSS transition to apply
 
     // Extract Pokémon name from the image source and convert to uppercase
-    var monName = imageSrc.split('/').pop().split('.')[0].toUpperCase();
+    monName = imageSrc.split('/').pop().split('.')[0];
+    monNameUpper = monName.toUpperCase();
 
-    console.log(monName);
+    //console.log(monNameUpper);
 
-    if (monName == "ORENCINN") monName = "ORENCIN";
+    if (monNameUpper == "ORENCINN") monNameUpper = "ORENCIN";
 
+    if(monNameUpper == "BUNCTI" || monNameUpper == "HAREPIN" || monNameUpper == "FAENESTREL" || monNameUpper == "BUGHTY" || 
+    monNameUpper == "HAREPIN" || monNameUpper == "FAENESTREL"|| monNameUpper == "GECKOAL" || monNameUpper == "THERMTILE" || 
+    monNameUpper == "FOUNDRIZARD" || monNameUpper == "TUNIBBLE" || monNameUpper == "TUNERVE" || monNameUpper == "TUNOBLE"|| 
+    monNameUpper == "STRITTEN" || monNameUpper == "SAMEOWRAI"|| monNameUpper == "CRAWN" || monNameUpper == "ROOKAW" || 
+    monNameUpper == "IMPERAVEN" || monNameUpper == "OXINCH" || monNameUpper == "SWEETIPEDE" || /*monNameUpper == "CAPIF" || 
+    monNameUpper == "CURCAPER" || monNameUpper == "CAPHLORET" ||*/ monNameUpper == "CRAWEAK" || monNameUpper == "HERMITRESS" || 
+    monNameUpper == "GROUL" || monNameUpper == "GROUNTED" || monNameUpper == "GRAUNTING" || monNameUpper == "PEBBROW" || 
+    monNameUpper == "UNISTONE" || monNameUpper == "SCUDDOG" || monNameUpper == "PSYCANINE");
+    else document.getElementById("modalButton1").style.display = "none";
+
+    if(buttonCheck == 2)
+    {
     // Create the audio file path and play the sound
     var crySound = new Audio('SyliaWebsite/Cries/' + monName + '.ogg');
 
     crySound.volume = 0.4;
 
     crySound.play();
+    }
 }
 
 function closeModal() {
     var modal = document.getElementById("imageModal");
+    var modalButton = document.getElementById("modalButton1"); // Reference to the button
 
     // Remove the 'show' class when closing the modal
     modal.classList.remove('show');
     
     setTimeout(function() {
         modal.style.display = "none";  // Hide modal after fade-out
+        modalButton.style.display = "none"; // Hide button when modal closes
+        buttonCheck = 2;
     }, 0);  // Wait for the fade-out animation to finish (same as the transition time)
     
     var searchTextbox = document.getElementById("searchTextbox");
@@ -371,6 +400,81 @@ function closeModal() {
     document.addEventListener('DOMContentLoaded', () => {
         preloadImages(imagesToPreload);
     });
+
+    function handleModalButtonClick() {
+        if(buttonCheck == 2)
+            openModal2();
+        if(buttonCheck == 1)
+    {
+        closeModal2();
+        openModal(modalImageSrc);
+    }
+    }
+
+    var buttonCheck = 2;
+
+    function openModal2() {
+    var modal = document.getElementById("imageModal");
+    var modalImage2 = document.getElementById("modalImage");
+    var searchTextbox = document.getElementById("searchTextbox");
+    var searchInputBG = document.getElementById("searchInputBG");
+    var evoLine = "";
+
+    if (monNameUpper == "ORENCINN") monNameUpper = "ORENCIN";
+    
+    if(monNameUpper == "BUGHTY" || monNameUpper == "COCOMFY" || monNameUpper == "DANSELVERN") evoLine = "Bughty";
+    if(monNameUpper == "BUNCTI" || monNameUpper == "HAREPIN" || monNameUpper == "FAENESTREL") evoLine = "Buncti";
+    if(monNameUpper == "GECKOAL" || monNameUpper == "THERMTILE" || monNameUpper == "FOUNDRIZARD") evoLine = "Geckoal";
+    if(monNameUpper == "TUNIBBLE" || monNameUpper == "TUNERVE" || monNameUpper == "TUNOBLE") evoLine = "Tunibble";
+    if(monNameUpper == "STRITTEN" || monNameUpper == "SAMEOWRAI" || monNameUpper == "NINSLASH") evoLine = "Stritten";
+    if(monNameUpper == "CRAWN" || monNameUpper == "ROOKAW" || monNameUpper == "IMPERAVEN") evoLine = "Crawn";
+    if(monNameUpper == "OXINCH" || monNameUpper == "SWEETIPEDE") evoLine = "Oxinch";
+    if(monNameUpper == "CAPIF" || monNameUpper == "CURCAPER" || monNameUpper == "CAPHLORET") evoLine = "Capif";
+    if(monNameUpper == "CRAWEAK" || monNameUpper == "HERMITRESS") evoLine = "Craweak";
+    if(monNameUpper == "GROUL" || monNameUpper == "GROUNTED" || monNameUpper == "GRAUNTING") evoLine = "Groul";
+    if(monNameUpper == "PEBBROW" || monNameUpper == "UNISTONE") evoLine = "Unistone";
+    if(monNameUpper == "SCUDDOG" || monNameUpper == "PSYCANINE") evoLine = "Scuddog";
+    if(monNameUpper == "BUGHTY" || monNameUpper == "COCOMFY" || monNameUpper == "DANSELVERN") evoLine = "Bughty";
+
+    console.log(monNameUpper);
+    console.log(evoLine);
+
+    var imageSrc2 = "SyliaWebsite/EvoLinesResized/" + evoLine + "%20Line.png";
+
+    modal.style.display = "block";  // Show modal
+    modalImage2.src = imageSrc2;      // Set the modal image source
+    searchTextbox.style.display = "none";
+    searchInputBG.style.display = "none";
+
+    var captionText = document.getElementById("caption");
+    captionText.innerHTML = imageSrc2.split('/').pop();
+
+    setTimeout(function() {
+        modal.classList.add('show');
+        document.getElementById("modalButton1").innerText = "Pokémon Info";
+        buttonCheck = 1;
+    }, 10);
+
+    if (monName == "ORENCINN") monName = "ORENCIN";
+}
+
+function closeModal2() {
+    var modal = document.getElementById("imageModal");
+
+    if(buttonCheck == 2)
+    modal.classList.remove('show');
+    
+    setTimeout(function() {
+        if(buttonCheck == 2)
+        modal.style.display = "none";     
+        buttonCheck = 2;
+    }, 0);
+
+    var searchTextbox = document.getElementById("searchTextbox");
+    var searchInputBG = document.getElementById("searchInputBG");
+    searchTextbox.style.display = "block";
+    searchInputBG.style.display = "block";
+}
     </script>
 
 <script>
@@ -391,45 +495,6 @@ function closeModal() {
             }
         });
     });
-}
-</script>
-
-
-<script>
-    function openModal2(imageSrc) {
-    var modal = document.getElementById("imageModal");  // Ensure a new ID for Model 2
-    var modalImage = document.getElementById("modalImage");
-    var searchTextbox = document.getElementById("searchTextbox");
-
-    modal.style.display = "block";
-    modalImage.src = imageSrc;
-    searchTextbox.style.display = "none";
-
-    var captionText = document.getElementById("caption");
-    captionText.innerHTML = imageSrc.split('/').pop();
-
-    setTimeout(function() {
-        modal.classList.add('show');
-    }, 10);
-
-    var monName = imageSrc.split('/').pop().split('.')[0].toUpperCase();
-    if (monName == "ORENCINN") monName = "ORENCIN";
-
-    var crySound = new Audio('SyliaWebsite/Cries/' + monName + '.ogg');
-    crySound.volume = 0.4;
-    crySound.play();
-}
-
-function closeModal2() {
-    var modal = document.getElementById("imageModal");
-    modal.classList.remove('show');
-    
-    setTimeout(function() {
-        modal.style.display = "none";
-    }, 0);
-
-    var searchTextbox = document.getElementById("searchTextbox");
-    searchTextbox.style.display = "block";
 }
 </script>
 </body>
