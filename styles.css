@@ -152,6 +152,7 @@ input[type="text"] {
     align-items: center;
     overflow: hidden;
     aspect-ratio: 1/1; /* Keeps image box square */
+    cursor: pointer;
 }
 
 .image-box img {
@@ -257,6 +258,15 @@ input[type="text"] {
 
 #modalButton1:hover {
     background-color: #456fa0;
+}
+
+.playSoundImage {
+    position: absolute;
+    right: 5.5vw;
+    bottom: 0.8vh;
+    width: 2.5vw;
+    cursor: pointer;
+    display: none; /* Initially hidden */
 }
 
 .close {

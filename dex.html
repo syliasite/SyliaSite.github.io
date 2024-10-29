@@ -43,6 +43,7 @@
         
         <!-- New Button for Modal 1 -->
         <button id="modalButton1" onclick="handleModalButtonClick()">Evolution Line</button>
+        <img id="playSoundImage" class="playSoundImage" src="SyliaWebsite/Page_Images/playSoundImage.png" alt="Extra Image" onclick="playSoundImageClicked()"/>
     </div>
 
         <!-- Image Display Section -->
@@ -277,16 +278,19 @@
 var monName = "";
 var monNameUpper = "";
 var modalImageSrc = "";
+var crySound = "";
 
 function openModal(imageSrc) {
     var modal = document.getElementById("imageModal");
     var modalImage = document.getElementById("modalImage");
     var searchTextbox = document.getElementById("searchTextbox");
     var searchInputBG = document.getElementById("searchInputBG");
-    var modalButton = document.getElementById("modalButton1"); // Reference to the button
+    var modalButton = document.getElementById("modalButton1"); 
+    var playSoundImage = document.getElementById("playSoundImage"); 
 
     modal.style.display = "block";  // Show modal
     modalButton.style.display = "block"; // Show button when modal opens
+    playSoundImage.style.display = "block";
     modalImage.src = imageSrc;      // Set the modal image source
     modalImageSrc = imageSrc;
     console.log(modalImage);
@@ -324,11 +328,11 @@ function openModal(imageSrc) {
     if(buttonCheck == 2)
     {
     // Create the audio file path and play the sound
-    var crySound = new Audio('SyliaWebsite/Cries/' + monNameUpper + '.ogg');
+    crySound = new Audio('SyliaWebsite/Cries/' + monNameUpper + '.ogg');
 
     crySound.volume = 0.4;
 
-    crySound.play();
+    // crySound.play();
     }
 }
 
@@ -495,6 +499,10 @@ function closeModal2() {
             }
         });
     });
+}
+
+function playSoundImageClicked() {
+    crySound.play();
 }
 </script>
 </body>
