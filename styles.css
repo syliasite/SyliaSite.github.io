@@ -245,7 +245,7 @@ input[type="text"] {
     bottom: 0.8vh;
     left: 50%;
     transform: translateX(-50%);
-    width: 12vw;
+    width: 20%;
     padding: 2px 5px;
     font-size: 0.8vw;
     background-color: #4735ab;
@@ -262,9 +262,9 @@ input[type="text"] {
 
 .playSoundImage {
     position: absolute;
-    right: 5.5vw;
-    bottom: 0.8vh;
-    width: 2.5vw;
+    left: 1.9%;
+    bottom: 28%;
+    width: 4.5%;
     cursor: pointer;
     display: none; /* Initially hidden */
 }
