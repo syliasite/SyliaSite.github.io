@@ -138,6 +138,20 @@ input[type="text"] {
     border-radius: 10px;
 }
 
+.watchLink {
+    position: relative;
+    top: 60%;
+    text-align: center;
+    margin: 20px auto;
+    font-weight: bold;
+    font-size: 1.8em;
+    text-decoration: none;
+    color: #ffffff; /* Adjust color as needed */
+    -webkit-text-stroke: 1.8px #000;
+    text-shadow: 5px 5px 5px rgba(87, 37, 22, 0.8); /* Shadow effect */
+    /*text-shadow: -1.5px -1.5px 0 #000, 1.5px -1.5px 0 #000, -1.5px  1.5px 0 #000, 1.5px  1.5px 0 #000;*/
+}
+
 .image-box {
     background-color: rgba(200, 200, 200, 0.8); /* Light grey with some transparency */
     border-radius: 15px;
