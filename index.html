@@ -7,19 +7,76 @@
     <title>Project Aragonite</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preload" href="SyliaWebsite/Page_Images/Main_Home_Screen.png" as="image">
-    <link rel="preload" href="SyliaWebsite/Page_Images/Game_Region_Info.png.png" as="image">
+    <link rel="preload" href="SyliaWebsite/Page_Images/Game_Region_Info.png" as="image">
     <link rel="preload" href="SyliaWebsite/Page_Images/Trainer_Info.png" as="image">
     <link rel="shortcut icon" type="image/x-icon" href="SyliaWebsite/Page_Images/logo.ico" />
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .vertical-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .background-image {
+            width: 100%;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .image1 {
+            background-image: url('SyliaWebsite/Page_Images/Main_Home_Screen.png'); 
+            height: calc(100vh);
+        }
+
+        .image2 {
+            background-image: url('SyliaWebsite/Page_Images/Game_Region_Info.png');
+        }
+
+        .image3 {
+            background-image: url('SyliaWebsite/Page_Images/Trainer_Info.png');
+        }
+
+        .left-arrow, .right-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            width: 75px;
+        }
+
+        .left-arrow {
+            left: 10px;
+        }
+
+        .right-arrow {
+            right: 10px;
+        }
+
+        .watch-trailer {
+            position: absolute;
+            top: 70%;
+            left: calc(50% - 5px);
+            transform: translateX(-50%);
+        }
+
+        .watch-trailer a {
+            color: white;
+            text-decoration: none;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+    </style>
 </head>
-<style>
-    body, html {
-        height: 100%;
-        margin: 0;
-        background: url('SyliaWebsite/Page_Images/Main_Home_Screen.png') no-repeat center center fixed;
-        background-size: cover;
-        transition: background-image 2s ease-in-out;
-    }
-</style>
 <body>
     <header>
         <nav>
@@ -32,76 +89,53 @@
         </nav>
     </header>
 
-    <div class="watchLink">
-    <a href="#" class="watchLink" onclick="showVideo()">Watch Trailer</a>
+    <div class="vertical-container">
+        <!-- Background Section 1 -->
+        <div class="background-image image1">
+            <img class="left-arrow" src="SyliaWebsite/Page_Images/Left_Arrow.png" alt="Left Arrow" onclick="scrollToImage(2)">
+            <img class="right-arrow" src="SyliaWebsite/Page_Images/Right_Arrow.png" alt="Right Arrow" onclick="scrollToImage(1)">
+            <div class="watch-trailer">
+                <a href="#" onclick="showVideo()">Watch Trailer</a>
+            </div>
+        </div>
+
+        <!-- Background Section 2 -->
+        <div class="background-image image2">
+            <img class="left-arrow" src="SyliaWebsite/Page_Images/Left_Arrow.png" alt="Left Arrow" onclick="scrollToImage(0)">
+            <img class="right-arrow" src="SyliaWebsite/Page_Images/Right_Arrow.png" alt="Right Arrow" onclick="scrollToImage(2)">
+        </div>
+
+        <!-- Background Section 3 -->
+        <div class="background-image image3">
+            <img class="left-arrow" src="SyliaWebsite/Page_Images/Left_Arrow.png" alt="Left Arrow" onclick="scrollToImage(1)">
+            <img class="right-arrow" src="SyliaWebsite/Page_Images/Right_Arrow.png" alt="Right Arrow" onclick="scrollToImage(0)">
+        </div>
     </div>
 
-    <!-- Overlay for dimming the page -->
+    <!-- Overlay and Modal for Video -->
     <div id="overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7);"></div>
-
-    <div id="videoModal" style="display: none; position: fixed; top: 51%; left: 50%; transform: translate(-50%, -50%); width: 75%; height: 75%; background-color: rgba(0, 0, 0, 0.9);">
+    <div id="videoModal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 75%; height: 75%; background-color: rgba(0, 0, 0, 0.9);">
         <span onclick="closeVideo()" style="position: absolute; top: 10px; right: 20px; font-size: 24px; color: white; cursor: pointer;">&times;</span>
-        <iframe id="youtubeVideo" width="100%" height="100%" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe id="youtubeVideo" width="100%" height="100%" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </div>
-
-    <!--<h1 style="text-align: center; color: white; -webkit-text-stroke: 1.4px black; text-stroke: 1.4px black; font-size: 48px;">A Fanmade Project Based On The Real Life Island Of Sicily</h1>-->
-
-    <!-- Left and right arrow images -->
-    <img id="left-arrow" class="arrow" src="SyliaWebsite/Page_Images/Left_Arrow.png" alt="Left Arrow">
-    <img id="right-arrow" class="arrow" src="SyliaWebsite/Page_Images/Right_Arrow.png" alt="Right Arrow">
 
     <script>
-        // List of background images
-        const backgrounds = [
-            "SyliaWebsite/Page_Images/Main_Home_Screen.png",
-            "SyliaWebsite/Page_Images/Game_Region_Info.png",
-            "SyliaWebsite/Page_Images/Trainer_Info.png"
-        ];
-
-        // Preload all background images to ensure fast swaps
-        const preloadedImages = [];
-        backgrounds.forEach((src) => {
-            const img = new Image();
-            img.src = src;
-            preloadedImages.push(img);
-        });
-
-        // Current background index
-        let currentIndex = 0;
-
-        // Function to change the background with smooth transition
-        function changeBackground(index) {
-            if (index < 0) {
-                currentIndex = backgrounds.length - 1;
-            } else if (index >= backgrounds.length) {
-                currentIndex = 0;
-            } else {
-                currentIndex = index;
-            }
-
-            // Change the background image with smooth transition
-            document.body.style.backgroundImage = `url('${backgrounds[currentIndex]}')`;
+        // Scroll to a specific section
+        function scrollToImage(index) {
+            document.querySelectorAll('.background-image')[index].scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Event listeners for arrow clicks
-        document.getElementById('left-arrow').addEventListener('click', function() {
-            changeBackground(currentIndex - 1);
-        });
-
-        document.getElementById('right-arrow').addEventListener('click', function() {
-            changeBackground(currentIndex + 1);
-        });
-
+        // Video functionality
         function showVideo() {
-            document.getElementById('overlay').style.display = 'block'; // Show overlay
-            document.getElementById('videoModal').style.display = 'block'; // Show video modal
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('videoModal').style.display = 'block';
             document.getElementById('youtubeVideo').src = "https://www.youtube.com/embed/TQKnWTgEW54?autoplay=1";
         }
 
         function closeVideo() {
-            document.getElementById('overlay').style.display = 'none'; // Hide overlay
-            document.getElementById('videoModal').style.display = 'none'; // Hide video modal
-            document.getElementById('youtubeVideo').src = ""; // Clear src to stop video
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('videoModal').style.display = 'none';
+            document.getElementById('youtubeVideo').src = "";
         }
     </script>
 </body>
