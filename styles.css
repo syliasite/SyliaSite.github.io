@@ -19,14 +19,21 @@ body {
 }
 
 header {
-    background-color: #000;
+    position: fixed; /* Makes the header stick to the top */
+    top: 0; /* Aligns the header at the top */
+    left: 0;
+    width: 100%; /* Ensures it spans the entire width of the page */
+    background-color: #000; /* Background color remains the same */
     padding: 10px 0;
+    z-index: 1000; /* Ensures it is above all other elements */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Adds a shadow for better visibility */
 }
 
 .navbar {
     list-style: none;
     display: flex;
     justify-content: left;
+    margin-left: 15px; /* Adjusts spacing for better alignment */
 }
 
 .navbar li {
@@ -42,11 +49,16 @@ header {
 }
 
 .navbar a:hover {
-    background: linear-gradient(180deg, #000000, #000000, #000,  #111, #222, #444,#888, #ffffff);
+    background: linear-gradient(180deg, #000000, #000000, #000,  #111, #222, #444, #888, #ffffff);
 }
 
 .navbar .active {
-    background: linear-gradient(180deg, #000000, #000000, #000,  #111, #222, #444,#888, #ffffff);
+    background: linear-gradient(180deg, #000000, #000000, #000,  #111, #222, #444, #888, #ffffff);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    padding-top: 40px; /* Prevents content from overlapping with the fixed navbar */
 }
 
 .section {
@@ -64,7 +76,7 @@ header {
 .SearchInputBG {
     position: absolute;
     z-index: 999;
-    top: 149px;
+    top: 150px;
     right: 14.7vw;
     border-radius: 20px;
 }
@@ -146,14 +158,13 @@ input[type="text"] {
     font-weight: bold;
     font-size: 1.8em;
     text-decoration: none;
-    color: #ffffff; /* Adjust color as needed */
+    color: #ffffff;
     -webkit-text-stroke: 1.8px #000;
-    text-shadow: 5px 5px 5px rgba(87, 37, 22, 0.8); /* Shadow effect */
-    /*text-shadow: -1.5px -1.5px 0 #000, 1.5px -1.5px 0 #000, -1.5px  1.5px 0 #000, 1.5px  1.5px 0 #000;*/
+    text-shadow: 5px 5px 5px rgba(87, 37, 22, 0.8);
 }
 
 .image-box {
-    background-color: rgba(200, 200, 200, 0.8); /* Light grey with some transparency */
+    background-color: rgba(200, 200, 200, 0.8);
     border-radius: 15px;
     border: 1px solid black; 
     padding: 0;
@@ -165,14 +176,14 @@ input[type="text"] {
     max-width: 250px;
     align-items: center;
     overflow: hidden;
-    aspect-ratio: 1/1; /* Keeps image box square */
+    aspect-ratio: 1/1;
     cursor: pointer;
 }
 
 .image-box img {
     max-width: 100%;
     height: auto;
-    object-fit: contain; /* Ensure image fits without being cropped or stretched */
+    object-fit: contain;
     border-radius: 10px;
 }
 
