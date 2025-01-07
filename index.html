@@ -33,7 +33,6 @@
 
         .image1 {
             background-image: url('SyliaWebsite/Page_Images/Main_Home_Screen.png'); 
-            height: calc(100vh);
         }
 
         .image2 {
@@ -49,7 +48,7 @@
             top: 50%;
             transform: translateY(-50%);
             cursor: pointer;
-            width: 75px;
+            width: 0px;
         }
 
         .left-arrow {
@@ -75,6 +74,38 @@
             border-radius: 5px;
             font-size: 18px;
         }
+
+        .text-content {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: black;
+            background-color: rgba(0, 0, 0, 0.0);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left;
+            width: 40%;
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        .text-content-left {
+            left: 5%; /* Position on the left */
+        }
+
+        .text-content-right {
+            right: 5%; /* Position on the right */
+        }
+
+        .text-content h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .text-content p {
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
@@ -82,6 +113,8 @@
         <nav>
             <ul class="navbar">
                 <li><a href="index.html" class="active">HOME</a></li>
+                <li><a href="#region">REGION</a></li>
+                <li><a href="#trainers">TRAINERS</a></li>
                 <li><a href="dex.html">DEX</a></li>
                 <li><a href="#faq">FAQ</a></li>
                 <li><a href="#credits">CREDITS</a></li>
@@ -100,15 +133,55 @@
         </div>
 
         <!-- Background Section 2 -->
-        <div class="background-image image2">
+        <div class="background-image image2" id="region">
             <img class="left-arrow" src="SyliaWebsite/Page_Images/Left_Arrow.png" alt="Left Arrow" onclick="scrollToImage(0)">
             <img class="right-arrow" src="SyliaWebsite/Page_Images/Right_Arrow.png" alt="Right Arrow" onclick="scrollToImage(2)">
+            <div class="text-content text-content-left">
+                <h1>Pokémon Aragonite</h1>
+                <p>
+                    Pokémon Aragonite is a fanmade project based on the real-life island of Sicily, in the South of Italy. 
+                    This project aims to reimagine Sicily into the Pokémon world by creating the Sylia region, where you 
+                    will be able to explore many areas and cities based off actual places!<br><br>
+
+                    Initially, this started as a fakemon dex where we had fun interpreting our culture, flora, and fauna 
+                    into Fakemon, but then we decided to use Pokémon Essentials to turn it into a playable game!<br><br>
+
+                    <strong>THE REGION</strong><br>
+                    The colorful Sylia region offers a rich climate where many Pokémon have inhabited its ancient ruins 
+                    and coastlines. The people live with the respect of its prominent volcano: Mount Ethenelle.<br><br>
+
+                    But it's not just sights that make Sylia unique, but also its rich and ancient history, myths of 
+                    creatures inhabiting the Messen Strait, strange ruins on the island of Pharot, and the fascinating 
+                    mosaics of Forfer Town...<br><br>
+
+                    Recently, Mt. Ethenelle seems to be acting more active than usual, and the law is getting involved 
+                    in keeping an eye on suspicious activities, what could this mean? But there's a charismatic team of 
+                    researchers that aims to study and uncover everything that is hidden on this island!
+                </p>
+            </div>
         </div>
 
         <!-- Background Section 3 -->
-        <div class="background-image image3">
+        <div class="background-image image3" id="trainers">
             <img class="left-arrow" src="SyliaWebsite/Page_Images/Left_Arrow.png" alt="Left Arrow" onclick="scrollToImage(1)">
             <img class="right-arrow" src="SyliaWebsite/Page_Images/Right_Arrow.png" alt="Right Arrow" onclick="scrollToImage(0)">
+            <div class="text-content text-content-right">
+                <h1>The Trainers</h1>
+                <p>
+                    Embark on your journey as either Biagio or Cecilia
+                    alongside one of the three starters,
+                    it is gonna be quite a long trek!
+                    You aren't just going around to collect
+                    badges, but to become a fully fledged researcher!<br><br>
+                    
+                    As you collect Gym badges, ART will recognise
+                    you more and more as a proper member of their team,
+                    and you will be allowed to partake in their various expeditions.<br><br>
+                    
+                    You might help some people, or collect ancient relics,
+                    or perhaps find rare Pokémon!
+                </p>
+            </div>
         </div>
     </div>
 
@@ -137,6 +210,58 @@
             document.getElementById('videoModal').style.display = 'none';
             document.getElementById('youtubeVideo').src = "";
         }
+
+
+        // Select all navbar links
+        const navLinks = document.querySelectorAll('.navbar a');
+
+        // Add click event listener to each link
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                // Remove the 'active' class from all links
+                navLinks.forEach(link => link.classList.remove('active'));
+                // Add the 'active' class to the clicked link
+                link.classList.add('active');
+            });
+        });
+
+    // Select all sections with corresponding IDs
+    const sections = document.querySelectorAll('section[id], div[id]');
+
+    // Function to update active link based on scroll position
+        const updateActiveLink = () => {
+            let currentSection = "";
+
+            // Get the scroll position
+            const scrollPosition = window.scrollY + window.innerHeight / 3;
+
+            // Check each section's position
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+
+                // Determine the section currently in view
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            // If the scroll position is near the top of the page (before the first section), set "HOME" as active
+            if (scrollPosition < sections[0].offsetTop) {
+                currentSection = "home"; // Indicates "HOME" when scrolling near the top
+            }
+
+            // Update the active link
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === currentSection || (currentSection === "home" && link.getAttribute('href') === "index.html")) {
+                    link.classList.add('active');
+                }
+            });
+        };
+
+    // Attach the scroll event listener
+    window.addEventListener('scroll', updateActiveLink);
     </script>
 </body>
 </html>
